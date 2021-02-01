@@ -13,7 +13,7 @@ import com.happyplaces.database.DatabaseHandler
 import com.happyplaces.models.HappyPlaceModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class  MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +32,14 @@ class MainActivity : AppCompatActivity() {
 
         val placesAdapter = HappyPlacesAdapter(this, happyPlaceList)
         rv_happy_places_list.adapter = placesAdapter
+
+        placesAdapter.setOnClickListener(object: HappyPlacesAdapter.OnClickListener{
+            override fun onClick(position: Int, model: HappyPlaceModel) {
+                val intent  = Intent(this@MainActivity, HappyPlaceDetailActivity::class.java)
+                intent.putExtra(EXTRA_PLACE_DETAILS, model)
+                startActivity(intent)
+            }
+        })
 
     }
     private fun getHappyPlacesListFromLocalDB(){
@@ -58,7 +66,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object{
-        private const val ADD_PLACE_ACTIVITY_REQUEST_CODE = 1
+        var ADD_PLACE_ACTIVITY_REQUEST_CODE = 1
+        var  EXTRA_PLACE_DETAILS = "extra_place_details"
     }
 
 }
