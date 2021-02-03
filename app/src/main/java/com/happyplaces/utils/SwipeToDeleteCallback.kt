@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.happyplaces.R
 
-// TODO (Step 1: Create a class for delete feature same as edit feature just changed the icon and direction.)
-// START
 // For detail explanation of this class you can look at below link.
 // https://medium.com/@kitek/recyclerview-swipe-to-delete-easier-than-you-thought-cff67ff5e5f6
 /**
@@ -78,4 +76,3 @@ abstract class SwipeToDeleteCallback(context: Context) : ItemTouchHelper.SimpleC
         c?.drawRect(left, top, right, bottom, clearPaint)
     }
 }
-// END
