@@ -7,6 +7,7 @@ import com.happyplaces.R
 import com.happyplaces.models.HappyPlaceModel
 import kotlinx.android.synthetic.main.activity_happy_place_detail.*
 
+
 class HappyPlaceDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
